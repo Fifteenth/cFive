@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<!-- amespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.mn.zq.model.dao.SystemAccessMapper">
+    
+    <resultMap id="systemAccessResultMap" type="com.mn.zq.model.SystemAccess">
+		<id property="uuid" column="UUID" />
+		<result property="ip" column="IP" />
+		<result property="uri" column="URI" />
+		<result property="accessDateTime" column="ACCESS_DATETIME" jdbcType="DATE" />
+	</resultMap>
+    
+    <!-- id和mapper接口中的方法名对应，resultType使用mybatis.xml中的别名 -->
+	<select id="getCount" resultType="int">        
+	    	SELECT COUNT(*)
+			FROM SYSTEM_ACCESS
+	</select>
+	
+	<select id="getLastSystemAccess" resultType="com.mn.zq.model.SystemAccess">
+	    	SELECT TOP 1 *
+			FROM SYSTEM_ACCESS
+			ORDER BY ACCESS_DATETIME DESC
+	</select>
+
+	 
+	<insert id="saveSystemAccess">     
+        insert into SYSTEM_ACCESS(UUID,IP,URI,ACCESS_DATETIME) values(#{uuid},#{ip},#{uri},#{accessDateTime})  
+    </insert>
+	
+</mapper>

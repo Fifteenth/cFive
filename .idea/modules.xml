@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Five.iml" filepath="$PROJECT_DIR$/.idea/Five.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module/football/module.football.iml" filepath="$PROJECT_DIR$/module/football/module.football.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module/iDeveloper/module.iDeveloper.iml" filepath="$PROJECT_DIR$/module/iDeveloper/module.iDeveloper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module/kaptcha/module.kaptcha.iml" filepath="$PROJECT_DIR$/module/kaptcha/module.kaptcha.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module/spin/module.spin.iml" filepath="$PROJECT_DIR$/module/spin/module.spin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module/video/module.video.iml" filepath="$PROJECT_DIR$/module/video/module.video.iml" />
+    </modules>
+  </component>
+</project>

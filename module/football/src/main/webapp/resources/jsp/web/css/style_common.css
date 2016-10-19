@@ -1,0 +1,59 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+
+.user_info {
+	float: right;
+	margin-top: 25px;
+	margin-right: 25px;
+}
+
+.user_info span {
+	font-size: 11px;
+	color: #258;
+	font-family: Verdana;
+	font-weight: bolder;
+}
+
+.content_head {
+	background: url(../images/bg.jpg) no-repeat;
+	height: 435px;
+	width: 782px;
+    /*text-align:center;*//* 不加就能居中*/
+    margin:0 auto; /*不加这个就不居中了，改为左对齐*/
+ 
+}
+
+.box {
+	height: 40px;
+	margin-top: 0px;
+	width: 782px;
+}
+
+.buttom_welcome {
+	float: right;
+	margin-right: 20px;
+	margin-top: 15px;
+}
+
+.buttom_welcome a {
+	background: url(../images/menu_button.gif) repeat-x;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+#iframebody {
+	height: 300px;
+	margin-top: 50px;
+	margin-align: center;
+	width: 780px;
+}

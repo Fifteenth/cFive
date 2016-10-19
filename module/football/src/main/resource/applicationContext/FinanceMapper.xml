@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.mn.zq.model.dao.FinanceMapper">
+    
+    <resultMap id="financeResultMap" type="com.mn.zq.model.Finance">
+		<id property="id" column="ID" />
+		<result property="number" column="NUMBER" />
+		<result property="name" column="NAME" />
+		<result property="amount" column="AMOUNT" />
+		<result property="descripition" column="DESCRIPITION" />
+		<result property="currentTime" column="CURRENTTIME" />
+		<result property="type" column="TYPE" />
+	</resultMap>
+	
+    <!-- id和mapper接口中的方法名对应，resultType使用mybatis.xml中的别名 -->
+    <!-- 
+	<select id="getFinance" resultType="Finance">
+	    <![CDATA[            
+	    	select * from FOOTBALL_FINANCE
+	    	]]>
+	</select>
+	 -->
+	
+	<select id="getFinanceById" resultMap="financeResultMap" parameterType="java.lang.String">        
+	    <![CDATA[            
+	    	select * from FOOTBALL_FINANCE
+	    	where NUMBER = #{number,jdbcType=VARCHAR}
+	    	]]>
+	</select>
+	
+	<!-- 
+	<insert id="saveFinance">     
+        insert into FOOTBALL_FINANCE(NUMBER,NAME,AMOUNT,DESCRIPITION,CURRENTTIME,TYPE) values(#{number},#{name},#{amount},#{descripition},#{currentTime},#{type})  
+    </insert>
+     -->
+	
+</mapper>

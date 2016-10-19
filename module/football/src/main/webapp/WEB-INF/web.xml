@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   
+ 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    
+
+    
+    <listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener> 
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:applicationContext.xml,
+		</param-value>
+	</context-param>
+    
+  
+	<context-param>
+	  <param-name>org.restlet.application</param-name>
+	  <param-value>com.mn.zq.application.RestComponentApplication</param-value>
+	</context-param>
+	 
+	<servlet>
+	  <servlet-name>SpringMVCServlet</servlet-name>
+	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	  <servlet-name>SpringMVCServlet</servlet-name>
+	  <url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+
+	<filter>
+		<filter-name>Action</filter-name>
+		<filter-class>com.mn.zq.filter.SystemAccessFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>Action</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> 
+
+	
+	<!-- The filter get HTTP method put/delete data -->
+	<filter>
+		<filter-name>httpPutFormContentFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HttpPutFormContentFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>httpPutFormContentFilter</filter-name>
+		<servlet-name>SpringMVCServlet</servlet-name>
+	</filter-mapping> 
+  
+</web-app>

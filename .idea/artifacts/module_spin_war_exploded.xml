@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="module.spin:war exploded">
+    <output-path>$PROJECT_DIR$/module/spin/target/module.spin-1.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="module.spin" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="module.spin/web/spin" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<!-- amespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.mn.zq.model.dao.PlayerMapper">
+    
+    <resultMap type="com.mn.zq.model.Player" id="playerResultMap">
+		<id property="idCard" column="ID_CARD" />
+		<result property="number" column="NUMBER" />
+		<result property="name" column="NAME" />
+		<result property="birthDay" column="BIRTHDAY" />
+		<result property="club" column="CLUB" />
+	</resultMap>
+    
+    <!-- id和mapper接口中的方法名对应，resultType使用mybatis.xml中的别名 -->
+	<select id="getPlayer" resultType="com.mn.zq.model.Player">
+	    	SELECT * 
+	    	FROM FOOTBALL_PLAYER
+	    	WHERE 1=1
+	    	<if test="idCard != null">
+				AND ID_CARD = #{idCard}
+			</if>
+	</select>
+
+	
+	<insert id="savePlayer">     
+        insert into FOOTBALL_PLAYER(ID_CARD,NUMBER,NAME,BIRTHDAY,CLUB) values(#{idCard},#{number},#{name},#{birthDay},#{club})  
+    </insert>
+    
+	<update id="updatePlayer">
+	    UPDATE FOOTBALL_PLAYER SET [NAME]=#{name},[CLUB]=#{club} WHERE NUMBER=#{number}
+	</update>
+	
+	<delete id="deletePlayer">
+	    DELETE FROM FOOTBALL_PLAYER WHERE NUMBER=#{number}
+	</delete>
+	
+	
+</mapper>

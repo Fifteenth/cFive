@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.mn.zq.model.dao.FinanceMapper">
+	<resultMap type="com.mn.zq.model.Finance" id="financeResultMap">
+		<id property="id" column="ID" />
+		<result property="number" column="NUMBER" />
+		<result property="name" column="NAME" />
+		<result property="amount" column="AMOUNT" />
+		<result property="descripition" column="DESCRIPITION" />
+		<result property="currentTime" column="CURRENTTIME" />
+		<result property="type" column="TYPE" />
+	</resultMap>
+</mapper>

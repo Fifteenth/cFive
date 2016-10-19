@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<!-- amespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.mn.zq.model.dao.LeagueMapper">
+    
+    <resultMap id="systemAccessResultMap" type="com.mn.zq.model.League">
+		<id property="season" column="SEASON" />
+		<id property="round" column="ROUND" />
+		<id property="club" column="CLUB" />
+		<result property="number" column="NUMBER" />
+		<result property="win" column="WIN" />
+		<result property="draw" column="DRAW" />
+		<result property="lose" column="LOSE" />
+		<result property="goalEnter" column="GOAL_ENTER" />
+		<result property="goalLose" column="GOAL_LOSE" />
+		<result property="goalDifference" column="GOAL_DIFFERENCE" />
+		<result property="integration" column="INTEGRATION" />
+		<result property="cardRed" column="CARD_RED" />
+		<result property="cardYellow" column="CARD_YELLOW" />
+	</resultMap>
+    
+    <!-- id和mapper接口中的方法名对应，resultType使用mybatis.xml中的别名 -->
+	 
+	<select id="getLeague" resultType="com.mn.zq.model.League">
+    	SELECT *
+		FROM FOOTBALL_LEAGUE_DEPRECATED
+		WHERE ROUND = (
+			SELECT MAX(ROUND)
+			FROM FOOTBALL_LEAGUE_DEPRECATED
+		)
+	</select>
+	
+	<select id="getLastRound" resultType="int">        
+		SELECT MAX(ROUND)
+		FROM FOOTBALL_LEAGUE_DEPRECATED
+	</select>
+	
+	<insert id="saveLeague">     
+        insert into FOOTBALL_LEAGUE_DEPRECATED
+        (SEASON,ROUND,CLUB,NUMBER,WIN,DRAW,LOSE,GOAL_ENTER,GOAL_LOSE,GOAL_DIFFERENCE,INTEGRATION,CARD_RED,CARD_YELLOW) 
+        values
+        (#{season},#{round},#{club},#{number},#{win},#{draw},#{lose},#{goalEnter},#{goalLose},#{goalDifference},#{integration},#{cardRed},#{cardYellow})  
+    </insert>
+	
+</mapper>

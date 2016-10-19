@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<!-- amespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.mn.zq.model.dao.ScorerMapper">
+    
+    <resultMap id="scorersMap" type="com.mn.zq.model.Scorer">
+		<id property="season" column="SEASON" />
+		<id property="round" column="ROUND" />
+		<id property="club" column="CLUB" />
+		<id property="number" column="NUMBER" />
+		<result property="count" column="COUNT" />
+		<result property="name" column="NAME" />
+		<result property="ranking" column="RANKING" />
+	</resultMap>
+    
+    <!-- id和mapper接口中的方法名对应，resultType使用mybatis.xml中的别名 -->
+    <!-- 
+	<select id="getScorers" resultType="Scorer">
+	    	SELECT SEASON,NAME,SUM(COUNT) AS COUNT,NUMBER,CLUB
+			FROM FOOTBALL_LEAGUE_SCORERS
+			GROUP BY SEASON,CLUB,NUMBER,NAME
+			ORDER BY COUNT DESC
+	</select>
+	 -->
+	 <select id="getScorers" resultType="com.mn.zq.model.Scorer">
+	    	SELECT *
+			FROM FOOTBALL_LEAGUE_SCORERS
+			WHERE ROUND = (
+				SELECT MAX(ROUND)
+				FROM FOOTBALL_LEAGUE_SCORERS
+			)
+			ORDER BY COUNT DESC
+	</select>
+	
+	 
+	<insert id="saveScorer">     
+        insert into FOOTBALL_LEAGUE_SCORERS
+        (SEASON,ROUND,CLUB,NUMBER,COUNT,NAME) 
+        values
+        (#{season},#{round},#{club},#{number},#{count},#{name},#{ranking})  
+    </insert>
+	
+</mapper>

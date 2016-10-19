@@ -1,0 +1,184 @@
+*
+{
+margin:0;
+padding:0;
+border:0;
+}
+
+body
+{
+background-color:#F3FBFE;
+font-size:12px;
+font-family:Arial,Helvetica,sans-serif;
+text-align:center;
+}
+
+.content_head
+{
+background:url(../images/bg.jpg) no-repeat;
+height:575px;
+width:1000px;
+margin-top: 4px
+}
+
+.buttom_welcome
+{
+float:right;
+margin-right:20px;
+margin-top:52px;
+}
+
+#top
+{
+height:200px;
+margin-top:200px;
+width:1000px;
+}
+
+#bottom
+{
+height:100px;
+margin-top:10px;
+width:1000px;
+}
+
+.pagination
+{
+float:right;
+margin-right:0px;
+}
+.pagination td
+{
+text-align:right;
+
+}
+
+/*--------------------------table
+-----------------------------------------------*/
+table   
+{
+border:1px solid #6080C0;
+border-collapase:collapase;
+caption-side:bottom;
+margin-top:0px;
+width:100%;
+border-collapse: collapse;
+
+}
+
+th, td
+{
+	border: 1px solid #6080C0;
+	height:28px;
+}
+
+input
+{
+border:1px solid #7F9DB9;
+font-size:16px;
+width:90%;
+}
+
+input[name="pkWardId"]
+{
+	width:40%;
+}
+
+.required
+{
+background-color:#FEFACD;
+}
+.pop_selected
+{
+background-color:#FFC8C8;
+}
+
+select
+{
+border:1px solid #7F9DB9;
+font-size:13px;
+width:90%;
+}
+
+.select_test
+{
+width:50px;
+visibility:hidden;
+}
+
+/*--------------------------���水ť��ʽ
+-----------------------------------------------*/
+.func_button
+{
+clear:both;
+float:left;
+margin-left:0px;
+margin-top:0px;
+text-align:center;
+}
+
+.func_button ul
+{
+float:left;
+margin:0px;
+padding:0px;
+list-style-type:none;
+width:100%;
+}
+
+.func_button ul li
+{
+float:left;
+}
+
+.func_button ul a
+{
+background:url(../images/menu_button.gif) repeat-x;
+display:block;
+padding: 0 2em;
+line-height:2.1em;
+color:#FFFFFF;
+text-decoration:none;
+}
+
+.center_side_top
+{
+margin-top:0px;
+background:url(../images/list_middle.jpg) repeat;
+height:27px;
+width:100%;
+margin-top: 2px
+}
+
+.center_table
+{
+width:100%;
+margin-top: 2px
+}
+
+.center_side_bottom
+{
+margin-top:0px;
+background:url(../images/list_middle.jpg) repeat-x;
+height:20px;
+}
+
+/*--------------------l����ʽ
+----------------------------------------------*/
+a
+{
+color:#000;
+font-size:13px;
+text-decoration:none;
+border:0;
+}
+
+a:link��a:visited
+{
+color: #000;
+}
+
+a:hover��a:active
+{
+color:#eee;
+}
