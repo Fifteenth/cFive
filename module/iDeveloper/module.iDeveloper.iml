@@ -5,7 +5,6 @@
       <configuration>
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
-          <root url="file://$MODULE_DIR$/module/iDeveloper.view/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
