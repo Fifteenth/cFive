@@ -28,4 +28,7 @@ public class WebApplicationInitializer extends AbstractAnnotationConfigDispatche
     protected Filter[] getServletFilters() {
         return null;
     }
+
+
+    
 }
