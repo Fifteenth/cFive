@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Five.iml" filepath="$PROJECT_DIR$/.idea/Five.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module/iDeveloper/module/iDeveloper.view/iDeveloper.view.iml" filepath="$PROJECT_DIR$/module/iDeveloper/module/iDeveloper.view/iDeveloper.view.iml" />
       <module fileurl="file://$PROJECT_DIR$/module/football/module.football.iml" filepath="$PROJECT_DIR$/module/football/module.football.iml" />
       <module fileurl="file://$PROJECT_DIR$/module/iDeveloper/module.iDeveloper.iml" filepath="$PROJECT_DIR$/module/iDeveloper/module.iDeveloper.iml" />
       <module fileurl="file://$PROJECT_DIR$/module/kaptcha/module.kaptcha.iml" filepath="$PROJECT_DIR$/module/kaptcha/module.kaptcha.iml" />
