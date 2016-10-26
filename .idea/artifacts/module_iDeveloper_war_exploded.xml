@@ -45,7 +45,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.1.6.RELEASE" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="module.iDeveloper/web/iDevelop" />
+      <element id="javaee-facet-resources" facet="module.iDeveloper/web/iDeveloper" />
     </root>
   </artifact>
 </component>
