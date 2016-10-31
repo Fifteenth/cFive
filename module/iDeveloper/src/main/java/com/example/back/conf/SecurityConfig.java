@@ -1,6 +1,7 @@
 package com.example.back.conf;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -11,6 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.header.HeaderWriter;
 import org.springframework.security.web.header.HeaderWriterFilter;
+import org.springframework.security.web.util.matcher.AndRequestMatcher;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +34,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(md5Encoder);
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery(
+                        "select username,password, enabled from IDEVELOPER_BASE_USERS where username=?")
+                .authoritiesByUsernameQuery(
+                        "select username,authority from IDEVELOPER_BASE_AUTHORITIES where username=?")
+                .passwordEncoder(md5Encoder);
     }
 
     @Override
@@ -41,17 +50,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http
-//              将login.jsp定为登陆页面，只处理/login这个请求
-                .formLogin().loginPage("/login.jsp").and().formLogin().loginProcessingUrl("/login")
-//              如果登陆成功就跳转到/home这个地址，如果失败就跳转到/?error=1
+        http.csrf().disable();
+//        http.csrf().ignoringAntMatchers(("/iDeveloper*/**"));
+//        http.csrf().requireCsrfProtectionMatcher(
+//                new AndRequestMatcher(
+//                        // Apply CSRF protection to all paths that do NOT match the ones below
+//
+//                        // We disable CSRF at login/logout, but only for OPTIONS methods
+//                        new NegatedRequestMatcher(new AntPathRequestMatcher("/iDeveloper*/**", HttpMethod.POST.toString()))
+//                )
+//        );
+        //http.addFilterAfter(new CsrfTokenResponseCookieBindingFilter(), CsrfFilter.class); // CSRF tokens handling
+
+        http.formLogin().loginPage("/login.jsp").and().formLogin().loginProcessingUrl("/login")
                 .and().formLogin().defaultSuccessUrl("/home").and().formLogin().failureUrl("/?error=1");
-//      这里配置的是登出的请求
         http.logout().logoutUrl("/logout")
-//              登陆成功后跳转的地址，以及删除的cookie名称
                 .and().logout().logoutSuccessUrl("/")
                 .and().logout().deleteCookies("JSESSIONID");
-//      配置记住我的过期时间
         http.rememberMe().tokenValiditySeconds(1209600)
                 .and().rememberMe().rememberMeParameter("remember-me");
         CharacterEncodingFilter encodeFilter = new CharacterEncodingFilter();

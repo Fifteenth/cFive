@@ -12,6 +12,7 @@ public class Developer {
     private String title1;
     private String title2;
     private String title3;
+    private String name;
     private String description;
 
 
@@ -45,6 +46,14 @@ public class Developer {
 
     public void setTitle3(String title3) {
         this.title3 = title3;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {

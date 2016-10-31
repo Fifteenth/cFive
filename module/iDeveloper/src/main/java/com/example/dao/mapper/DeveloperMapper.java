@@ -17,7 +17,8 @@ public interface DeveloperMapper {
     @Results(value = {
             @Result(column="TITLE_1", property="title1"),
             @Result(column="TITLE_2", property="title2"),
-            @Result(column="TITLE_3", property="title3")
+            @Result(column="TITLE_3", property="title3"),
+            @Result(column="Name", property="name")
     })
     List<Developer> selectIDeveloper();
 }
