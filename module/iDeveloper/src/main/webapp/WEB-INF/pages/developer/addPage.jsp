@@ -13,19 +13,24 @@
     <script type="text/javascript" src="<%=basePath%>/resources/javascript/jquery-1.11.0.min.js"></script>
 
     <script type="text/javascript">
+
         function add(){
-                $.ajax({
-                    url: '/five/iDeveloper/add',
-                    type: 'Post',
-                    dataType: 'json',
-                    data: {
-                        playerNumber: '11',
-                    }
-                }).done(function(data, status, xhr) {
-                    alert('success');
-                }).fail(function(xhr, status, error) {
-                    alert('fail');
-                });
+            $.ajax({
+                url: '/five/iDeveloper/add',
+                type: 'Post',
+                dataType: 'json',
+                data: {
+                    title1: $("#title1").val(),
+                    title2: $("#title2").val(),
+                    title3: $("#title3").val(),
+                    name: $("#name").val(),
+                    description:$("#description").val()
+                }
+            }).done(function(data, status, xhr) {
+                alert('success');
+            }).fail(function(xhr, status, error) {
+                alert('fail');
+            });
         };
     </script>
 </head>
@@ -35,43 +40,34 @@
             <tr>
                 <td>Title 1</td>
                 <td>
-                    <select>
-                        <option value="1"> ---- </option>
-                        <option value="1"> JAVA </option>
-                        <option value="1"> Net </option>
-                        <option value="1"> JAVA </option>
-                        <option value="1"> JAVA </option>
+                    <select id="title1">
+                        <option value="-1"> ---- </option>
+                        <option value="1"> PROGRAM </option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>Title 2</td>
                 <td>
-                    <select>
-                        <option value="1"> ---- </option>
-                        <option value="1"> JAVA </option>
-                        <option value="1"> Net </option>
-                        <option value="1"> JAVA </option>
-                        <option value="1"> JAVA </option>
-                    </select>
+                    <input id="title2">
                 </td>
             </tr>
             <tr>
                 <td>Title 3</td>
                 <td>
-                    <select>
-                        <option value="1"> ---- </option>
-                        <option value="1"> JAVA </option>
-                        <option value="1"> Net </option>
-                        <option value="1"> JAVA </option>
-                        <option value="1"> JAVA </option>
-                    </select>
+                    <input id="title3">
+                </td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input id="name">
                 </td>
             </tr>
             <tr>
                 <td>Decription</td>
                 <td>
-                    <textarea rows="4" cols="50"></textarea>
+                    <textarea id="description" rows="4" cols="50"></textarea>
                 </td>
             </tr>
             <tr>

@@ -20,4 +20,8 @@ public class DeveloperService {
     public List<Developer> selectIDeveloper(){
         return  (List<Developer>) developerMapper.selectIDeveloper();
     }
+
+    public void saveIDeveloper(Developer developer){
+        developerMapper.saveIDeveloper(developer);
+    }
 }

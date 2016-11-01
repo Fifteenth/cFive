@@ -32,7 +32,19 @@ public class DeveloperController {
     @PreAuthorize("isAuthenticated()")// isAuthenticated 如果用户不是匿名用户就返回true
     public @ResponseBody
     String developerAdd(HttpServletRequest request) {
-        return "{\"aa\":\"bb\"}";
+        String title1 = request.getParameter("title1");
+        String title2 = request.getParameter("title2");
+        String title3 = request.getParameter("title3");
+        String name = request.getParameter("name");
+        String description = request.getParameter("description");
+        Developer developer = new Developer();
+        developer.setTitle1(title1);
+        developer.setTitle2(title2);
+        developer.setTitle3(title3);
+        developer.setName(name);
+        developer.setDescription(description);
+        developerService.saveIDeveloper(developer);
+        return "{\"result\":\"success\"}";
     }
 
 }

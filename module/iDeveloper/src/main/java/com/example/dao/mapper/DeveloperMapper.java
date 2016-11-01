@@ -1,10 +1,7 @@
 package com.example.dao.mapper;
 
 import com.example.bean.Developer;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -21,4 +18,17 @@ public interface DeveloperMapper {
             @Result(column="Name", property="name")
     })
     List<Developer> selectIDeveloper();
+
+
+    @Insert(value = "INSERT INTO I_Developer VALUES (\n" +
+            "UUID()," +
+            "#{title1}, " +
+            "#{title2}, " +
+            "#{title3}," +
+            "#{name}," +
+            "#{description}," +
+            "'five'," +
+            "now()," +
+            "now())")
+    void saveIDeveloper(Developer developer);
 }
