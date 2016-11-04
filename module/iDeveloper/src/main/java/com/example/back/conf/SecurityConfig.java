@@ -50,8 +50,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable();
-//        http.csrf().ignoringAntMatchers(("/iDeveloper*/**"));
+//        http.csrf().disable();
+        http.csrf().ignoringAntMatchers("/add**");
+//        http.csrf().ignoringAntMatchers("/nocsrf","/add**");
 //        http.csrf().requireCsrfProtectionMatcher(
 //                new AndRequestMatcher(
 //                        // Apply CSRF protection to all paths that do NOT match the ones below

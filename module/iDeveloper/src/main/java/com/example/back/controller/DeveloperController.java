@@ -1,11 +1,14 @@
 package com.example.back.controller;
 
 import com.example.bean.Developer;
+import com.example.bean.DeveloperLink;
+import com.example.service.DeveloperLinkService;
 import com.example.service.DeveloperService;
 import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,6 +24,8 @@ public class DeveloperController {
 
     @Autowired
     private DeveloperService developerService;
+    @Autowired
+    private DeveloperLinkService developerLinkService;
 
     @RequestMapping(value = "/addPage", method = RequestMethod.GET)
     @PreAuthorize("isAuthenticated()")// isAuthenticated 如果用户不是匿名用户就返回true
@@ -43,8 +48,21 @@ public class DeveloperController {
         developer.setTitle3(title3);
         developer.setName(name);
         developer.setDescription(description);
-        developerService.saveIDeveloper(developer);
+        //developerService.saveIDeveloper(developer);
         return "{\"result\":\"success\"}";
+    }
+
+    @RequestMapping(value = "/viewLink/{iDeveloperId}", method = RequestMethod.GET)
+    @PreAuthorize("isAuthenticated()")// isAuthenticated 如果用户不是匿名用户就返回true
+    public String viewLink(HttpServletRequest request, @PathVariable("iDeveloperId") String iDeveloperId) {
+        try {
+            List<DeveloperLink> fList = developerLinkService.selectIDeveloperLinkByIDeveloperiD(iDeveloperId);
+//            JSONArray fArray = JSONArray.fromObject(fList);
+//            request.setAttribute("fArray",fArray);
+        }catch (Exception e){
+            e.getStackTrace();
+        }
+        return "/developer/viewLink";
     }
 
 }
