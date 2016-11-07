@@ -7,25 +7,36 @@
 %>
 <html>
 <head>
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+
     <title>Developer Add Page</title>
 
+    <%-- Does sec tags need--%>
     <sec:csrfMetaTags/>
     <script type="text/javascript" src="<%=basePath%>/resources/javascript/jquery-1.11.0.min.js"></script>
-
     <script type="text/javascript">
 
         function add(){
+            var token = $("meta[name='_csrf']").attr("content");
+            var header = $("meta[name='_csrf_header']").attr("content");
             $.ajax({
                 url: '/five/iDeveloper/add',
                 type: 'Post',
                 dataType: 'json',
+                headers: {
+                    header: token
+                },
                 data: {
                     title1: $("#title1").val(),
                     title2: $("#title2").val(),
                     title3: $("#title3").val(),
                     name: $("#name").val(),
                     description:$("#description").val()
-                }
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
             }).done(function(data, status, xhr) {
                 alert('success');
             }).fail(function(xhr, status, error) {

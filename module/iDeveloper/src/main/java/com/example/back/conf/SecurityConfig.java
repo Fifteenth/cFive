@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
 //        http.csrf().disable();
-        http.csrf().ignoringAntMatchers("/add**");
+//        http.csrf().ignoringAntMatchers("/add**");
 //        http.csrf().ignoringAntMatchers("/nocsrf","/add**");
 //        http.csrf().requireCsrfProtectionMatcher(
 //                new AndRequestMatcher(
@@ -62,6 +62,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                )
 //        );
         //http.addFilterAfter(new CsrfTokenResponseCookieBindingFilter(), CsrfFilter.class); // CSRF tokens handling
+
+
+//        http.csrf().csrfTokenRepository(org.springframework.security.web.csrf.CookieCsrfTokenRepository.withHttpOnlyFalse());
 
         http.formLogin().loginPage("/login.jsp").and().formLogin().loginProcessingUrl("/login")
                 .and().formLogin().defaultSuccessUrl("/home").and().formLogin().failureUrl("/?error=1");

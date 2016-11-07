@@ -47,7 +47,11 @@
 				var $td4 =  $("<td>" + array[i].title3 +"</td>");
 				var $td5 =  $("<td>" + array[i].name +"</td>");
 				var $td6 =  $("<td>" + array[i].description +"</td>");
-				var $td7 =  $("<td id=\"td_link\"><a href='<%=basePath%>/viewLink/" + array[i].id + "' target='_blank'>links</a></td>");
+				var link = 'link';
+				if(array[i].id != null && array[i].id != ''){
+					link = array[i].id;
+				}
+				var $td7 =  $("<td id=\"td_link\"><a href='<%=basePath%>/viewLink/" + link + "' target='_blank'>links</a></td>");
 				$tr.append($td1);
 				$tr.append($td2);
 				$tr.append($td3);
