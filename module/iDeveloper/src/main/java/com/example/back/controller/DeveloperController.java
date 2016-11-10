@@ -42,13 +42,15 @@ public class DeveloperController {
         String title3 = request.getParameter("title3");
         String name = request.getParameter("name");
         String description = request.getParameter("description");
+        String link = request.getParameter("link");
         Developer developer = new Developer();
         developer.setTitle1(title1);
         developer.setTitle2(title2);
         developer.setTitle3(title3);
         developer.setName(name);
         developer.setDescription(description);
-        //developerService.saveIDeveloper(developer);
+        developer.setLink(link);
+        developerService.saveIDeveloper(developer);
         return "{\"result\":\"success\"}";
     }
 

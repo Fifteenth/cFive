@@ -15,7 +15,8 @@ public interface DeveloperMapper {
             @Result(column="TITLE_1", property="title1"),
             @Result(column="TITLE_2", property="title2"),
             @Result(column="TITLE_3", property="title3"),
-            @Result(column="Name", property="name")
+            @Result(column="NAME", property="name"),
+            @Result(column="LINK", property="link")
     })
     List<Developer> selectIDeveloper();
 
@@ -27,6 +28,7 @@ public interface DeveloperMapper {
             "#{title3}," +
             "#{name}," +
             "#{description}," +
+            "#{link}," +
             "'five'," +
             "now()," +
             "now())")

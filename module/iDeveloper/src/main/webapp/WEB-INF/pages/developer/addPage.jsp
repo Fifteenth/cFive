@@ -32,7 +32,8 @@
                     title2: $("#title2").val(),
                     title3: $("#title3").val(),
                     name: $("#name").val(),
-                    description:$("#description").val()
+                    description:$("#description").val(),
+                    link: $("#link").val(),
                 },
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader(header, token);
@@ -53,7 +54,7 @@
                 <td>
                     <select id="title1">
                         <option value="-1"> ---- </option>
-                        <option value="1"> PROGRAM </option>
+                        <option value="PROGRAM"> PROGRAM </option>
                     </select>
                 </td>
             </tr>
@@ -79,6 +80,12 @@
                 <td>Decription</td>
                 <td>
                     <textarea id="description" rows="4" cols="50"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>link</td>
+                <td>
+                    <input id="link" size="60">
                 </td>
             </tr>
             <tr>

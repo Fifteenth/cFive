@@ -14,7 +14,7 @@ public class Developer {
     private String title3;
     private String name;
     private String description;
-
+    private String link;
 
     public String getId() {
         return id;
@@ -62,6 +62,14 @@ public class Developer {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
 }
