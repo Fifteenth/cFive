@@ -21,7 +21,7 @@
             var token = $("meta[name='_csrf']").attr("content");
             var header = $("meta[name='_csrf_header']").attr("content");
             $.ajax({
-                url: '/five/iDeveloper/add',
+                url: '/iDeveloper/add',
                 type: 'Post',
                 dataType: 'json',
                 headers: {

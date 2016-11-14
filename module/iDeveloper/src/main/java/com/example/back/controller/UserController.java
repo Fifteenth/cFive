@@ -22,7 +22,8 @@ import java.util.List;
  */
 @Controller
 public class UserController {
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+//    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+    org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
@@ -39,6 +40,7 @@ public class UserController {
         }catch (Exception e){
             logger.error(e.getLocalizedMessage(), e);
         }
+        logger.debug("**************** Test ****************");
         return "/main/main";
     }
 }
