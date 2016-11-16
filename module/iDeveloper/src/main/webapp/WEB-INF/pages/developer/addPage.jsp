@@ -55,6 +55,7 @@
                     <select id="title1">
                         <option value="-1"> ---- </option>
                         <option value="PROGRAM"> PROGRAM </option>
+                        <option value="ISSUE"> ISSUE </option>
                     </select>
                 </td>
             </tr>

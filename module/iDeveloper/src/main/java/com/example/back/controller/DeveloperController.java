@@ -59,8 +59,8 @@ public class DeveloperController {
     public String viewLink(HttpServletRequest request, @PathVariable("iDeveloperId") String iDeveloperId) {
         try {
             List<DeveloperLink> fList = developerLinkService.selectIDeveloperLinkByIDeveloperiD(iDeveloperId);
-//            JSONArray fArray = JSONArray.fromObject(fList);
-//            request.setAttribute("fArray",fArray);
+            request.setAttribute("fList",fList);
+
         }catch (Exception e){
             e.getStackTrace();
         }
