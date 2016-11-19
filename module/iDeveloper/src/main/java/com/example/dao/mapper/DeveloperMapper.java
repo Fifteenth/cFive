@@ -3,6 +3,7 @@ package com.example.dao.mapper;
 import com.example.bean.Developer;
 import org.apache.ibatis.annotations.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -10,15 +11,16 @@ import java.util.List;
  */
 public interface DeveloperMapper {
 
-    @Select(value="select * from I_Developer")
+//    @Select(value="select * from I_Developer")
     @Results(value = {
             @Result(column="TITLE_1", property="title1"),
             @Result(column="TITLE_2", property="title2"),
             @Result(column="TITLE_3", property="title3"),
             @Result(column="NAME", property="name"),
-            @Result(column="LINK", property="link")
+            @Result(column="LINK", property="link"),
+            @Result(column="CREATE_TIME", property="createTime")
     })
-    List<Developer> selectIDeveloper();
+    List<Developer> selectIDeveloper(Developer developer);
 
 
     @Insert(value = "INSERT INTO I_Developer VALUES (\n" +

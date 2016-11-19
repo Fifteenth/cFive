@@ -5,6 +5,8 @@ import com.example.dao.mapper.DeveloperMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -18,7 +20,11 @@ public class DeveloperService {
 
 
     public List<Developer> selectIDeveloper(){
-        return  (List<Developer>) developerMapper.selectIDeveloper();
+
+        Timestamp timestamp = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
+        Developer developer = new Developer();
+        developer.setCreateTime(timestamp);
+        return  (List<Developer>) developerMapper.selectIDeveloper(developer);
     }
 
     public void saveIDeveloper(Developer developer){

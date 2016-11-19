@@ -3,11 +3,12 @@ package com.example.dao.conf;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -20,7 +21,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 public class DatabaseConfig {
-    private static final Logger logger = LoggerFactory.getLogger(DatabaseConfig.class);
+    private static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(DatabaseConfig.class);
 
     @Value("${jdbc.driver}")
     private String jdbcDriver;
@@ -66,6 +67,7 @@ public class DatabaseConfig {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
+        sessionFactory.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
         return sessionFactory.getObject();
     }
 }

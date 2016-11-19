@@ -1,0 +1,21 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.mapper.DeveloperMapper">
+
+
+    <resultMap id="developer" type="com.example.bean.Developer">
+        <id property="id" column="ID"/>
+        <result property="title1" column="TITLE_1"/>
+        <result property="title2" column="TITLE_2"/>
+        <result property="title3" column="TITLE_4"/>
+        <result property="createTime" column="CREATE_TIME"/>
+    </resultMap>
+
+    <select id="selectIDeveloper" resultMap="developer">
+        select * from I_Developer
+        where 1=1
+        <if test="createTime != null">
+            AND CREATE_TIME &lt;= #{createTime}
+        </if>
+    </select>
+
+</mapper>

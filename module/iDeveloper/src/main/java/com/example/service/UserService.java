@@ -2,8 +2,8 @@ package com.example.service;
 
 import com.example.bean.User;
 import com.example.dao.mapper.UserMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class UserService {
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(UserService.class);
     @Autowired
     private UserMapper userMapper;
 

@@ -3,6 +3,8 @@ package com.example.bean;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 
+import java.sql.Timestamp;
+
 /**
  * Created by hengqiangcao on 23/10/16.
  */
@@ -15,6 +17,7 @@ public class Developer {
     private String name;
     private String description;
     private String link;
+    private Timestamp createTime;
 
     public String getId() {
         return id;
@@ -70,6 +73,14 @@ public class Developer {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
     }
 
 }

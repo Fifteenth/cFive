@@ -38,7 +38,7 @@ public class UserController {
             JSONArray fArray = JSONArray.fromObject(fList);
             request.setAttribute("fArray",fArray);
         }catch (Exception e){
-            logger.error(e.getLocalizedMessage(), e);
+            // logger.error(e.getLocalizedMessage(), e);/Users/hengqiangcao/IdeaProjects/five/cFive/module/iDeveloper/
         }
         logger.debug("**************** Test ****************");
         return "/main/main";
