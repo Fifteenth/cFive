@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface DeveloperMapper {
 
-//    @Select(value="select * from I_Developer")
+    @Select(value="select * from I_Developer")
     @Results(value = {
             @Result(column="TITLE_1", property="title1"),
             @Result(column="TITLE_2", property="title2"),
@@ -21,6 +21,10 @@ public interface DeveloperMapper {
             @Result(column="CREATE_TIME", property="createTime")
     })
     List<Developer> selectIDeveloper(Developer developer);
+
+
+    List<Developer> selectIDeveloper(@Param("params") List<Developer> params);
+
 
 
     @Insert(value = "INSERT INTO I_Developer VALUES (\n" +
