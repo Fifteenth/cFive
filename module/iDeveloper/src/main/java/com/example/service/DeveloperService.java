@@ -20,14 +20,21 @@ public class DeveloperService {
 
 
     public List<Developer> selectIDeveloper(){
-
         Timestamp timestamp = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
         Developer developer = new Developer();
         developer.setCreateTime(timestamp);
         return  (List<Developer>) developerMapper.selectIDeveloper(developer);
     }
 
+    public Developer selectIDeveloper(String id){
+        return  developerMapper.selectIDeveloperById(id);
+    }
+
     public void saveIDeveloper(Developer developer){
         developerMapper.saveIDeveloper(developer);
+    }
+
+    public void updateDeveloper(Developer developer){
+        developerMapper.updateIDeveloper(developer);
     }
 }

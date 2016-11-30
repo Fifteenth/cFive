@@ -18,4 +18,18 @@
         </if>
     </select>
 
+
+    <select id="selectIDeveloperById" resultMap="developer">
+        select * from I_Developer
+        where 1=1
+        <if test="id != null and id != ''">
+            AND ID = #{id}
+        </if>
+    </select>
+
+    <update id="updateIDeveloper">
+        UPDATE I_Developer set NAME = #{name} WHERE ID = #{id}
+    </update>
+
+
 </mapper>

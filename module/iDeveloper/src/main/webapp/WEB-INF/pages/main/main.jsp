@@ -45,7 +45,7 @@
 				var $td2 =  $("<td>" + array[i].title1 +"</td>");
 				var $td3 =  $("<td>" + array[i].title2 +"</td>");
 				var $td4 =  $("<td>" + array[i].title3 +"</td>");
-				var $td5 =  $("<td><a href='<%=basePath%>/viewLink/" + array[i].id + "' target='_blank'>" + array[i].name + "</a></td>");
+				var $td5 =  $("<td><a href='<%=basePath%>/viewPage/" + array[i].id + "' target='_blank'>" + array[i].name + "</a></td>");
 				var $td6 =  $("<td>" + array[i].description +"</td>");
 				var $td7;
 				var link = array[i].link;
