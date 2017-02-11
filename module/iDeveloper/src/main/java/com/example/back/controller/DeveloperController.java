@@ -33,6 +33,28 @@ public class DeveloperController {
         return "/developer/addPage";
     }
 
+    @RequestMapping(value = "/query/{type}/{value}", method = RequestMethod.GET)
+    @PreAuthorize("isAuthenticated()")// isAuthenticated 如果用户不是匿名用户就返回true
+    public String showHomePage(HttpServletRequest request,
+                               @PathVariable("type") String type,
+                               @PathVariable("value") String value) {
+        try {
+            Developer developer = new Developer();
+            if("navigation".equals(type)){
+                developer.setTitle1(value);
+            }else if("group".equals(type)){
+                developer.setTitle2(value);
+            }else if("popular".equals(type)){
+                developer.setTitle3(value);
+            }
+            List<Developer> fList = developerService.selectIDeveloper(developer);
+            JSONArray fArray = JSONArray.fromObject(fList);
+            request.setAttribute("fArray",fArray);
+        }catch (Exception e){
+        }
+        return "/main/main1";
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @PreAuthorize("isAuthenticated()")// isAuthenticated 如果用户不是匿名用户就返回true
     public @ResponseBody
@@ -70,7 +92,7 @@ public class DeveloperController {
         developer.setTitle1(title1);
         developer.setTitle2(title2);
         developer.setTitle3(title3);
-        developer.setName(name + 1);
+        developer.setName(name);
         developer.setDescription(description);
         developer.setLink(link);
         developerService.updateDeveloper(developer);
@@ -81,7 +103,7 @@ public class DeveloperController {
     @PreAuthorize("isAuthenticated()")// isAuthenticated 如果用户不是匿名用户就返回true
     public String viewPage(HttpServletRequest request, @PathVariable("iDeveloperId") String iDeveloperId) {
         try {
-            Developer fModel = developerService.selectIDeveloper(iDeveloperId);
+            Developer fModel = developerService.selectIDeveloperById(iDeveloperId);
             request.setAttribute("fModel",fModel);
 
         }catch (Exception e){

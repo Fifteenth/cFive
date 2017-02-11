@@ -14,6 +14,7 @@
 
     <%-- Does sec tags need--%>
     <sec:csrfMetaTags/>
+    <script src="//cdn.ckeditor.com/4.6.0/standard/ckeditor.js"></script>
     <script type="text/javascript" src="<%=basePath%>/resources/javascript/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">
 
@@ -33,7 +34,8 @@
                     title2: $("#title2").val(),
                     title3: $("#title3").val(),
                     name: $("#name").val(),
-                    description:$("#description").val(),
+                    //description:$("#description").val(),
+                    description:CKEDITOR.instances['description'].getData(),
                     link: $("#link").val(),
                 },
                 beforeSend: function (xhr) {
@@ -51,8 +53,9 @@
     <form>
         <table>
             <tr>
-                <td>Title 1<input id="id" value="${fModel.id}"></td>
+                <td>Title 1</td>
                 <td>
+                    <input id="id" value="${fModel.id}" hidden>
                     <input id="title1" value="${fModel.title1}">
                 </td>
             </tr>
@@ -77,7 +80,19 @@
             <tr>
                 <td>Decription</td>
                 <td>
-                    <textarea id="description" rows="4" cols="50">${fModel.description}</textarea>
+                    <textarea id="description" name="description">${fModel.description}</textarea>
+                    <script>
+                        CKEDITOR.replace('description' );
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>Decription</td>
+                <td>
+                    ${fModel.description}
+                    <script>
+                        CKEDITOR.replace('description' );
+                    </script>
                 </td>
             </tr>
             <tr>

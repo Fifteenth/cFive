@@ -18,15 +18,16 @@ public class DeveloperService {
     @Autowired
     private DeveloperMapper developerMapper;
 
-
-    public List<Developer> selectIDeveloper(){
-        Timestamp timestamp = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
-        Developer developer = new Developer();
-        developer.setCreateTime(timestamp);
+    public List<Developer> selectIDeveloper(Developer developer){
+        if(developer == null){
+            developer = new Developer();
+            Timestamp timestamp = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
+            developer.setCreateTime(timestamp);
+        }
         return  (List<Developer>) developerMapper.selectIDeveloper(developer);
     }
 
-    public Developer selectIDeveloper(String id){
+    public Developer selectIDeveloperById(String id){
         return  developerMapper.selectIDeveloperById(id);
     }
 

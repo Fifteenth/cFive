@@ -12,7 +12,7 @@
 
     <artifactId>football</artifactId>
 
-
+    <packaging>war</packaging>
 
 
     <dependencies>

@@ -14,6 +14,7 @@
 
     <%-- Does sec tags need--%>
     <sec:csrfMetaTags/>
+    <script src="//cdn.ckeditor.com/4.6.0/standard/ckeditor.js"></script>
     <script type="text/javascript" src="<%=basePath%>/resources/javascript/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">
 
@@ -80,7 +81,10 @@
             <tr>
                 <td>Decription</td>
                 <td>
-                    <textarea id="description" rows="4" cols="50"></textarea>
+                    <textarea id="description" name="description"></textarea>
+                    <script>
+                        CKEDITOR.replace('description' );
+                    </script>
                 </td>
             </tr>
             <tr>

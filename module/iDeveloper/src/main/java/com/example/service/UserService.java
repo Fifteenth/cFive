@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class UserService {
-    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(UserService.class);
+//    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(UserService.class);
     @Autowired
     private UserMapper userMapper;
 
@@ -33,6 +33,6 @@ public class UserService {
 
     private void getError() {
         int i = 1 / 0;
-        logger.info("i:{}" , i);
+//        logger.info("i:{}" , i);
     }
 }

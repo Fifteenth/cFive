@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="module.football:war">
+    <output-path>$PROJECT_DIR$/module/football/target</output-path>
+    <root id="archive" name="football-1.0-SNAPSHOT.war" />
+  </artifact>
+</component>

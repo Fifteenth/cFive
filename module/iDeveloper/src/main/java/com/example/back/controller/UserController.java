@@ -4,8 +4,8 @@ import com.example.bean.Developer;
 import com.example.service.DeveloperService;
 import com.example.service.UserService;
 import net.sf.json.JSONArray;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -34,13 +34,13 @@ public class UserController {
     @PreAuthorize("isAuthenticated()")// isAuthenticated 如果用户不是匿名用户就返回true
     public String showHomePage(HttpServletRequest request) {
         try {
-            List<Developer> fList = developerService.selectIDeveloper();
+            List<Developer> fList = developerService.selectIDeveloper(null);
             JSONArray fArray = JSONArray.fromObject(fList);
             request.setAttribute("fArray",fArray);
         }catch (Exception e){
             logger.error(e.getLocalizedMessage(), e);
         }
         logger.debug("**************** Test ****************");
-        return "/main/main";
+        return "/main/main1";
     }
 }
