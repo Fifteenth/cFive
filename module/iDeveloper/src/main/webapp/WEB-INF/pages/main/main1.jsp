@@ -155,7 +155,8 @@
         <jsp:include page="../developer/layout/list.jsp"></jsp:include>
     </main>
 
-    <nav id="left" class="column">
+    <jsp:include page="../developer/layout/navigation.jsp"></jsp:include>
+    <%--<nav id="left" class="column">
         <h5>NAVIGATION</h5>
         <ul>
             <li><a href="<%=basePath%>/query/navigation/PROGRAM">PROGRAM</a></li>
@@ -173,7 +174,7 @@
         <ul>
             <li><a href="<%=basePath%>/query/popular/mybatis">mybatis</a></li>
         </ul>
-    </nav>
+    </nav>--%>
 
     <%--<div id="right" class="column">
         <h3>Right heading</h3>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,8 +36,17 @@ public class UserController {
     public String showHomePage(HttpServletRequest request) {
         try {
             List<Developer> fList = developerService.selectIDeveloper(null);
+            List<String> fMenuItemList = new ArrayList<String>();
+            for(int i=0;i<fList.size();i++){
+                String fMenuItemName = fList.get(i).getTitle1();
+                if(!fMenuItemList.contains(fMenuItemName)){
+                    fMenuItemList.add(fMenuItemName);
+                }
+            }
             JSONArray fArray = JSONArray.fromObject(fList);
+            JSONArray fMenuItemArray = JSONArray.fromObject(fMenuItemList);
             request.setAttribute("fArray",fArray);
+            request.getSession().setAttribute("fMenuItemArray",fMenuItemArray);
         }catch (Exception e){
             logger.error(e.getLocalizedMessage(), e);
         }
