@@ -32,6 +32,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
+      <module name="cFive" target="1.5" />
       <module name="Five" target="1.5" />
       <module name="iDeveloper" target="1.5" />
       <module name="module.football" target="1.5" />

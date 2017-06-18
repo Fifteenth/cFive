@@ -142,44 +142,18 @@
 
 <header id="header"><p>iDeveloper</p></header>
 
-<div id="container">
+<div id="container" style="min-height: 462px">
 
     <main id="center" class="column">
-        <%-- toolbar--%>
         <ul>
             <li>
                 <a href="<%=basePath%>/addPage" target="_blank">Add</a>
             </li>
         </ul>
-
         <jsp:include page="../developer/layout/list.jsp"></jsp:include>
     </main>
 
     <jsp:include page="../developer/layout/navigation.jsp"></jsp:include>
-    <%--<nav id="left" class="column">
-        <h5>NAVIGATION</h5>
-        <ul>
-            <li><a href="<%=basePath%>/query/navigation/PROGRAM">PROGRAM</a></li>
-            <li><a href="<%=basePath%>/query/navigation/ISSUE">ISSUE</a></li>
-            <li><a href="<%=basePath%>/query/navigation/IDEA">IDEA</a></li>
-        </ul>
-        <h4>Group</h4>
-        <ul>
-            <li><a href="<%=basePath%>/query/group/Web Server">Web Server</a></li>
-        </ul>
-        <ul>
-            <li><a href="<%=basePath%>/query/group/Log">Log</a></li>
-        </ul>
-        <h3>popular</h3>
-        <ul>
-            <li><a href="<%=basePath%>/query/popular/mybatis">mybatis</a></li>
-        </ul>
-    </nav>--%>
-
-    <%--<div id="right" class="column">
-        <h3>Right heading</h3>
-        <p><script>generateText(1)</script></p>
-    </div>--%>
 
 </div>
 

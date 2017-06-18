@@ -34,7 +34,6 @@
                     title2: $("#title2").val(),
                     title3: $("#title3").val(),
                     name: $("#name").val(),
-                    //description:$("#description").val(),
                     description:CKEDITOR.instances['description'].getData(),
                     link: $("#link").val(),
                 },
@@ -86,15 +85,12 @@
                     </script>
                 </td>
             </tr>
-            <tr>
+            <%--<tr>
                 <td>Decription</td>
                 <td>
                     ${fModel.description}
-                    <script>
-                        CKEDITOR.replace('description' );
-                    </script>
                 </td>
-            </tr>
+            </tr>--%>
             <tr>
                 <td>link</td>
                 <td>

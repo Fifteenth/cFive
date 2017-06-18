@@ -33,7 +33,7 @@
                     title2: $("#title2").val(),
                     title3: $("#title3").val(),
                     name: $("#name").val(),
-                    description:$("#description").val(),
+                    description:CKEDITOR.instances['description'].getData(),
                     link: $("#link").val(),
                 },
                 beforeSend: function (xhr) {
@@ -57,6 +57,7 @@
                         <option value="-1"> ---- </option>
                         <option value="PROGRAM"> PROGRAM </option>
                         <option value="ISSUE"> ISSUE </option>
+                        <option value="Temporary"> Temporary </option>
                     </select>
                 </td>
             </tr>
